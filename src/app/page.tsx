@@ -2,11 +2,9 @@
 "use client";
 import Head from 'next/head';
 import Image from 'next/image';
-import { useState } from 'react';
+import WaitlistForm from '../../WaitListForm';
 
 export default function Home() {
-  const [email, setEmail] = useState('');
-
   return (
     <>
       <Head>
@@ -23,7 +21,7 @@ export default function Home() {
          style={styles.logo}
         /></h1>
         <p style={styles.subtitle}>
-          Ditch the clipboard. Say it once. Export to Excel.
+          Ditch the pen & clipboard. Say it once. Export to Excel with one click.
         </p>
         <div style={styles.line}></div>
         <div style={styles.previewWrapper}>
@@ -39,27 +37,7 @@ export default function Home() {
     style={styles.previewImage}
   />
 </div> 
-<div style={styles.formWrapper}>
-  <h3 style={styles.formTitle}>Join the Waitlist</h3>
-  <form
-          action="https://formspree.io/f/mkgrebaz" 
-          method="POST"
-          style={styles.form}
-        >
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            required
-            style={styles.input}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button type="submit" style={styles.button}>
-            Join the waitlist
-          </button>
-        </form>
-</div>
+  <WaitlistForm/>
 
         <footer style={styles.footer}>© {new Date().getFullYear()} SpyBottles</footer>
       </main>
